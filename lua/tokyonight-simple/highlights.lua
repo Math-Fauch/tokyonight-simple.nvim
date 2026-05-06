@@ -102,7 +102,7 @@ function M.get()
 		Boolean           = { fg = const },
 
 		Identifier        = { fg = fg },
-		Function          = { fg = fg, bold = true }, -- function name at def: bold, no color
+		Function          = { fg = c.purple, bold = true }, -- function name at def: bold + purple
 
 		Statement         = { fg = fg },
 		Conditional       = { fg = fg },
@@ -131,7 +131,7 @@ function M.get()
 		Debug             = { fg = c.orange },
 
 		Underlined        = { underline = true },
-		Bold              = { bold = true },
+		Bold              = { fg = c.purple, bold = true },
 		Italic            = { italic = true },
 		Ignore            = { fg = c.fg_gutter },
 		Error             = { fg = c.red_error },
@@ -164,7 +164,7 @@ function M.get()
 		["@function.macro"]       = { fg = fg },
 		["@function.method"]      = { fg = fg },
 		["@function.method.call"] = { fg = fg },
-		["@constructor"]          = { fg = fg, bold = true },
+		["@constructor"]          = { fg = c.purple, bold = true },
 
 		["@keyword"]              = { fg = fg },
 		["@keyword.function"]     = { fg = fg },
@@ -182,22 +182,24 @@ function M.get()
 
 		["@type"]                 = { fg = fg },
 		["@type.builtin"]         = { fg = fg },
-		["@type.definition"]      = { fg = fg, bold = true },
+		["@type.definition"]      = { fg = c.purple, bold = true },
 		["@attribute"]            = { fg = fg },
 		["@namespace"]            = { fg = fg },
 		["@module"]               = { fg = fg },
 		["@label"]                = { fg = fg },
 
-		["@tag"]                  = { fg = fg, bold = true },
+		["@tag"]                  = { fg = c.purple, bold = true },
 		["@tag.attribute"]        = { fg = fg },
 		["@tag.delimiter"]        = { fg = c.dark5 },
 
 		["@text"]                 = { fg = fg },
-		["@text.title"]           = { fg = fg, bold = true },
+		["@text.title"]           = { fg = c.purple, bold = true },
 		["@text.literal"]         = { fg = str },
 		["@text.uri"]             = { fg = c.cyan, underline = true },
 		["@text.emphasis"]        = { italic = true },
-		["@text.strong"]          = { bold = true },
+		["@text.strong"]          = { fg = c.purple, bold = true },
+		["@markup.strong"]        = { fg = c.purple, bold = true },
+		["@markup.italic"]        = { italic = true },
 		["@text.todo"]            = { link = "Todo" },
 		["@text.note"]            = { fg = c.blue, bold = true },
 		["@text.warning"]         = { fg = c.yellow, bold = true },
@@ -228,8 +230,8 @@ function M.get()
 		["@lsp.type.operator"]      = { fg = fg },
 		["@lsp.typemod.variable.readonly"] = { fg = const },
 		["@lsp.typemod.variable.defaultLibrary"] = { fg = fg, italic = true },
-		["@lsp.typemod.function.declaration"] = { fg = fg, bold = true },
-		["@lsp.typemod.method.declaration"]   = { fg = fg, bold = true },
+		["@lsp.typemod.function.declaration"] = { fg = c.purple, bold = true },
+		["@lsp.typemod.method.declaration"]   = { fg = c.purple, bold = true },
 
 		-- ── Diagnostics ────────────────────────────────────────────────
 		DiagnosticError           = { fg = c.red_error },
@@ -309,9 +311,9 @@ function M.get()
 		NeoTreeGitDeleted          = { fg = c.git_delete },
 
 		-- ── Markdown ───────────────────────────────────────────────────
-		markdownH1                 = { fg = fg, bold = true },
-		markdownH2                 = { fg = fg, bold = true },
-		markdownH3                 = { fg = fg, bold = true },
+		markdownH1                 = { fg = c.purple, bold = true },
+		markdownH2                 = { fg = c.purple, bold = true },
+		markdownH3                 = { fg = c.purple, bold = true },
 		markdownCode               = { fg = str },
 		markdownCodeBlock          = { fg = str },
 		markdownLinkText           = { fg = c.cyan, underline = true },
