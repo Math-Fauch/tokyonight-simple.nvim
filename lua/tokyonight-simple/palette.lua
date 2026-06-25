@@ -20,9 +20,9 @@ M.colors = {
 	fg_gutter       = "#3b4261",
 	fg_comment      = "#565f89",
 
-	-- Greys
-	dark3           = "#545c7e",
-	dark5           = "#737aa2",
+	-- Greys (now blue: only comments stay grey via fg_comment)
+	dark3           = "#7aa2f7",
+	dark5           = "#7aa2f7",
 	terminal_black  = "#414868",
 
 	-- Accents (used sparingly, alabaster-style)
