@@ -1,10 +1,9 @@
 -- tokyonight-simple
--- Tokyonight Storm palette, alabaster-style minimal highlighting.
+-- Tokyonight palette (Storm dark / Day light), alabaster-style minimal highlighting.
 
 local M = {}
 
-local function set_terminal_colors()
-	local c = require("tokyonight-simple.palette")
+local function set_terminal_colors(c)
 	vim.g.terminal_color_0  = c.bg
 	vim.g.terminal_color_1  = c.red
 	vim.g.terminal_color_2  = c.green
@@ -23,7 +22,10 @@ local function set_terminal_colors()
 	vim.g.terminal_color_15 = c.fg
 end
 
-function M.load()
+---@param style? "dark"|"light" (default "dark")
+function M.load(style)
+	style = style or "dark"
+
 	if vim.g.colors_name then
 		vim.cmd("hi clear")
 	end
@@ -32,12 +34,20 @@ function M.load()
 	end
 
 	vim.o.termguicolors = true
-	vim.g.colors_name = "tokyonight-simple"
-	vim.o.background = "dark"
+	if style == "light" then
+		vim.g.colors_name = "tokyonight-simple-light"
+		vim.o.background = "light"
+	else
+		vim.g.colors_name = "tokyonight-simple"
+		vim.o.background = "dark"
+	end
 
-	set_terminal_colors()
+	local c = style == "light" and require("tokyonight-simple.palette_light")
+		or require("tokyonight-simple.palette")
 
-	local highlights = require("tokyonight-simple.highlights").get()
+	set_terminal_colors(c)
+
+	local highlights = require("tokyonight-simple.highlights").get(c)
 	for group, opts in pairs(highlights) do
 		vim.api.nvim_set_hl(0, group, opts)
 	end

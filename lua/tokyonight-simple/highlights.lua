@@ -12,11 +12,10 @@
 --   * UI chrome (statusline, search, diff, git signs) keeps real colors so
 --     the editor remains usable.
 
-local c = require("tokyonight-simple.palette")
-
 local M = {}
 
-function M.get()
+---@param c table palette (dark or light)
+function M.get(c)
 	local fg     = c.fg
 	local bg     = c.bg
 	local none   = c.none

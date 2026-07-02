@@ -1,8 +1,13 @@
 # tokyonight-simple
 
-A Neovim colorscheme that pairs the **Tokyonight Storm** palette with the
+A Neovim colorscheme that pairs the **Tokyonight** palette with the
 **alabaster.nvim** philosophy: most code stays uncolored, and the few things
 that *do* get color actually mean something.
+
+Two variants:
+
+- `tokyonight-simple` — dark, based on the **Storm** palette
+- `tokyonight-simple-light` — light, based on the **Day** palette
 
 ## Philosophy
 
@@ -34,7 +39,7 @@ punctuation, parameters, properties — uses the default foreground.
   lazy = false,
   priority = 1000,
   config = function()
-    vim.cmd.colorscheme("tokyonight-simple")
+    vim.cmd.colorscheme("tokyonight-simple") -- or "tokyonight-simple-light"
   end,
 }
 ```
@@ -54,21 +59,24 @@ then `:colorscheme tokyonight-simple`.
 
 ```
 colors/
-  tokyonight-simple.lua        -- entry point for :colorscheme
+  tokyonight-simple.lua        -- entry point for :colorscheme (dark)
+  tokyonight-simple-light.lua  -- entry point for :colorscheme (light)
 lua/tokyonight-simple/
-  init.lua                     -- load()
-  palette.lua                  -- Tokyonight Storm colors
-  highlights.lua               -- highlight groups
+  init.lua                     -- load(style)
+  palette.lua                  -- Tokyonight Storm colors (dark)
+  palette_light.lua            -- Tokyonight Day colors (light)
+  highlights.lua               -- highlight groups (shared by both)
 ```
 
 ## Tweaking
 
-All colors live in `lua/tokyonight-simple/palette.lua`. To change what's
+All colors live in `lua/tokyonight-simple/palette.lua` (dark) and
+`lua/tokyonight-simple/palette_light.lua` (light). To change what's
 colored vs. plain, edit `lua/tokyonight-simple/highlights.lua` — the file is
 organized by section (Editor UI, Syntax, Treesitter, LSP, Diagnostics,
 Diff, Git, plugins).
 
 ## Credits
 
-- Palette: [folke/tokyonight.nvim](https://github.com/folke/tokyonight.nvim) (Storm variant)
+- Palette: [folke/tokyonight.nvim](https://github.com/folke/tokyonight.nvim) (Storm & Day variants)
 - Philosophy: [p00f/alabaster.nvim](https://github.com/p00f/alabaster.nvim)
